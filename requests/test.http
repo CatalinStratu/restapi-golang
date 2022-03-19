@@ -1,0 +1,11 @@
+### GET request with parameter, return days and date
+GET http://localhost:8080/just/an/example/how_much?pay_day=23
+Accept: application/json
+
+### GET request with parameter, return list of dates
+GET http://localhost:8080/just/an/example/list_how_many?pay_day=23
+Accept: application/json
+
+### GET request return eror 404
+GET http://localhost:8080/invalide-url
+Accept: application/json
