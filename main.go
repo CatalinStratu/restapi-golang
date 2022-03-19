@@ -1,9 +1,9 @@
 package main
 
 import (
-	"Go_lang_rest_API/api"
-	"log"
+	"fmt"
 	"net/http"
+	"service/api"
 )
 
 const (
@@ -21,7 +21,7 @@ func main() {
 	mx.HandleFunc("/", api.ErrorHandler)
 	err := http.ListenAndServe(Host+":"+Port, mx)
 	if err != nil {
-		log.Fatal("Error Starting the HTTP Server : ", err)
+		fmt.Printf("Error Starting the HTTP Server: %v", err)
 		return
 	}
 }

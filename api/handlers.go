@@ -21,6 +21,7 @@ type YearSuccessResponse struct {
 	Date string `json:"date"`
 }
 
+//HowMuch return how many days are left until the salary and the date when it will be received
 func HowMuch(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
@@ -56,6 +57,7 @@ func HowMuch(w http.ResponseWriter, r *http.Request) {
 
 }
 
+//ListHowMuch return the days when you will receive the salary until the end of the year.
 func ListHowMuch(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
@@ -106,10 +108,10 @@ func daysUntilSalary(day int, currentTime time.Time) DaySuccessResponse {
 	//Difference in days between the current date and the date when the salary must be received
 	days := diffInDays(salaryTime, currentTime)
 
-	//at the current time we add days + 1
+	//at current time add days + 1
 	salaryTime = currentTime.AddDate(0, 0, days+1)
 
-	//check if the payday is on the weekend
+	//check if the salaryTime is on the weekend
 	salaryTime = weekendValidation(salaryTime)
 
 	nrDays := salaryTime.Sub(currentTime).Hours() / 24

@@ -1,3 +1,3 @@
-module Go_lang_rest_API
+module service
 
 go 1.17
